@@ -1,3 +1,5 @@
+xxx.example.com/*
+
 addEventListener("fetch", (event) => {
   event.passThroughOnException();
   event.respondWith(handleRequest(event.request));
@@ -7,17 +9,17 @@ const dockerHub = "https://registry-1.docker.io";
 
 const routes = {
   // production
-  ["docker." + CUSTOM_DOMAIN]: dockerHub,
-  ["quay." + CUSTOM_DOMAIN]: "https://quay.io",
-  ["gcr." + CUSTOM_DOMAIN]: "https://gcr.io",
-  ["k8s-gcr." + CUSTOM_DOMAIN]: "https://k8s.gcr.io",
-  ["k8s." + CUSTOM_DOMAIN]: "https://registry.k8s.io",
-  ["ghcr." + CUSTOM_DOMAIN]: "https://ghcr.io",
-  ["cloudsmith." + CUSTOM_DOMAIN]: "https://docker.cloudsmith.io",
-  ["ecr." + CUSTOM_DOMAIN]: "https://public.ecr.aws",
+  ["docker." + notifierservice.vip]: dockerHub,
+  ["quay." + notifierservice.vip]: "https://quay.io",
+  ["gcr." + notifierservice.vip]: "https://gcr.io",
+  ["k8s-gcr." + notifierservice.vip]: "https://k8s.gcr.io",
+  ["k8s." + notifierservice.vip]: "https://registry.k8s.io",
+  ["ghcr." + notifierservice.vip]: "https://ghcr.io",
+  ["cloudsmith." + notifierservice.vip]: "https://docker.cloudsmith.io",
+  ["ecr." + notifierservice.vip]: "https://public.ecr.aws",
 
   // staging
-  ["docker-staging." + CUSTOM_DOMAIN]: dockerHub,
+  ["docker-staging." + notifierservice.vip]: dockerHub,
 };
 
 function routeByHosts(host) {
